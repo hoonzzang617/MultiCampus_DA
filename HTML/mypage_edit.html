@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>나의 팀 나사나수</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Nanum Gothic', sans-serif;
+            background-color: #4682B4;
+            color: #FFFFFF;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #FFD700;
+        }
+        h1 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        img:hover {
+            transform: scale(1.5);
+        }
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .team-info {
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        ul, dl {
+            padding-left: 20px;
+        }
+        a {
+            color: #FFD700;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: #FFA500;
+        }
+        .icon {
+            width: 30px;
+            height: 30px;
+            vertical-align: middle;
+            margin-left: 10px;
+        }
+        .zoom-container {
+            overflow: hidden;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>
+            <div class="zoom-container"><img src="수원1.png" alt="수원 로고 1" width="100" height="100" /></div>
+            나의 팀을 소개합니다
+            <div class="zoom-container"><img src="수원2.png" alt="수원 로고 2" width="100" height="100" /></div>
+        </h1>
+    </header>
+
+    <main>
+        <section class="profile">
+            <div class="zoom-container">
+                <img src="프로필 사진.jpg" alt="프로필 사진" width="150" height="150" />
+            </div>
+            <p>
+                대한민국 프로축구 팀 <strong>수원 삼성 블루윙즈</strong>를 응원하는 데이터 분석가 입니다.
+            </p>
+        </section>
+
+        <section class="team-info">
+            <h2>팀 소개</h2>
+            <dl>
+                <dt>연고지</dt>
+                <dd>수원 - 경기도 수원시 수원 월드컵 경기장</dd>
+                <dt>창단년도</dt>
+                <dd>1995년 12월 15일 (29주년)</dd>
+                <dt>우승횟수</dt>
+                <dd>
+                    <ul>
+                        <li>K리그1 (4회)</li>
+                        <li>코리아컵 (5회)</li>
+                        <li>리그컵 (6회)</li>
+                        <li>슈퍼컵 (3회)</li>
+                        <li>AFC 챔피언스 리그 (2회)</li>
+                        <li>아시안 슈퍼컵 (2회)</li>
+                        <li>등등...</li>
+                    </ul>
+                </dd>
+            </dl>
+        </section>
+
+        <section>
+            <h2>관련 링크</h2>
+            <ul>
+                <li><a href="http://www.bluewings.kr/" target="_blank">공식 홈페이지</a></li>
+                <li>
+                    서포터즈 = 프렌테 트리콜로 / 그랑블루
+                    <ul>
+                        <li><a href="http://frentetricolor.com/" target="_blank">공식 홈페이지</a></li>
+                        <li><a href="https://www.instagram.com/frente_tricolor/" target="_blank">인스타그램</a></li>
+                        <li><a href="https://www.youtube.com/@tricolor_tv" target="_blank">응원 영상 Youtube 채널</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>내 소개</h2>
+            <ul>
+                <li><a href="https://github.com/hoonzzang617" target="_blank">Github 페이지</a><div class="zoom-container"><img src="https://github.blog/wp-content/uploads/2024/07/github-logo.png" alt="GitHub 로고" class="icon" /></div></li>
+                <li>Bioinformatician 경력 <strong>2년 반(2021년 10월~2024년 5월)</strong> <div class="zoom-container"><img src="https://www.arraygen.com/images/Application-of-Bioinformatics.jpg" alt="Bioinformatics 이미지" class="icon" /></div></li>
+                <li>데이터 분석 과정 공부중 <strong>since 2024년 10월~</strong> <a href="https://multiit.co.kr/pages/gUEGxb240711?mediaCode=BT_de2411&utm_source=boottent&utm_medium=class&utm_campaign=Tech&utm_content=de_2411&utm_term=BT_de2411&" target="_blank">멀티캠퍼스 데이터 엔지니어 부트캠프(하둡,스파크)</a><div class="zoom-container"><img src="https://play-lh.googleusercontent.com/6pHmJreF1ENDu2MesUUAodUQQQo4eM72TL2dD_P3KMd7uUuhnczTeDypLfMj7UPN8oFW=w416-h235-rw" alt="멀티캠퍼스 로고" class="icon" /></div></li>
+            </ul>
+        </section>
+    </main>
+</body>
+</html>
