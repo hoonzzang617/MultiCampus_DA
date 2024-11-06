@@ -1,90 +1,195 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <title>나의 팀 나사나수</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            font-family: 'Nanum Gothic', sans-serif;
-            background-color: #4682B4;
-            color: #FFFFFF;
-            line-height: 1.6;
-            padding: 20px;
-            max-width: 800px;
+    <head>
+        <title>나의 팀 나사나수</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                font-family: 'Nanum Gothic', sans-serif;
+                line-height: 1.6;
+                padding: 20px;
+                max-width: 800px;
+                margin: 0 auto;
+                transition: background-color 0.3s, color 0.3s;
+            }
+            body.light-mode {
+                background-color: #4682B4;
+                color: #FFFFFF;
+            }
+            body.dark-mode {
+                background-color: #1a1a1a;
+                color: #e0e0e0;
+            }
+            h1, h2 {
+                text-align: center;
+            }
+            .light-mode h1, .light-mode h2 {
+                color: #bb473b;
+            }
+            .dark-mode h1, .dark-mode h2 {
+                color: #ff6b6b;
+            }
+            h1 {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 20px;
+            }
+            img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 10px;
+                transition: transform 0.3s ease;
+            }
+            img:hover {
+                transform: scale(1.5);
+            }
+            .profile {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                padding: 20px;
+                border-radius: 10px;
+                margin-bottom: 20px;
+            }
+            .light-mode .profile {
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+            .dark-mode .profile {
+                background-color: rgba(255, 255, 255, 0.05);
+            }
+            .team-info {
+                padding: 20px;
+                border-radius: 10px;
+            }
+            .light-mode .team-info {
+                background-color: rgba(0, 0, 0, 0.2);
+            }
+            .dark-mode .team-info {
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+            ul, dl {
+                padding-left: 20px;
+            }
+            a {
+                text-decoration: none;
+                transition: color 0.3s;
+            }
+            .light-mode a {
+                color: #bb473b;
+            }
+            .dark-mode a {
+                color: #ff6b6b;
+            }
+            a:hover {
+                color: #ff0000;
+            }
+            .icon {
+                width: 70px;
+                height: 70px;
+                vertical-align: middle;
+                margin-left: 10px;
+            }
+            .zoom-container {
+                overflow: hidden;
+                display: inline-block;
+            }
+            #mode-toggle {
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                padding: 10px;
+                background-color: #333;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+            /* 목차부분 스타일 */
+            .navbar {
+            background-color: #333;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            }
+
+            .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
             margin: 0 auto;
-        }
-        h1, h2 {
-            text-align: center;
-            color: #bb473b;
-        }
-        h1 {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-        }
-        img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            transition: transform 0.3s ease;
-        }
-        img:hover {
-            transform: scale(1.5);
-        }
-        .profile {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-        .team-info {
-            background-color: rgba(0, 0, 0, 0.2);
-            padding: 20px;
-            border-radius: 10px;
-        }
-        ul, dl {
-            padding-left: 20px;
-        }
-        a {
-            color: #bb473b;
+            padding: 0 2rem;
+            }
+
+            .navbar-logo {
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: bold;
             text-decoration: none;
-            transition: color 0.3s;
-        }
-        a:hover {
-            color: #ff0000;
-        }
-        .icon {
-            width: 70px;
-            height: 70px;
-            vertical-align: middle;
-            margin-left: 10px;
-        }
-        .zoom-container {
-            overflow: hidden;
-            display: inline-block;
-        }
-    </style>
+            }
+
+            .navbar-menu {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            }
+
+            .navbar-menu li {
+            margin-left: 1.5rem;
+            }
+
+            .navbar-menu li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+            }
+
+            .navbar-menu li a:hover {
+            color: #bb473b;
+            }
+
+            @media (max-width: 768px) {
+            .navbar-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .navbar-menu {
+                margin-top: 1rem;
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .navbar-menu li {
+                margin-left: 0;
+                margin-bottom: 0.5rem;
+            }
+            }
+        </style>
 </head>
-<body>
+<body class="light-mode">
+    <button id="mode-toggle">다크 모드</button>
     <header>
         <h1>
             <img src="수원1.png" class="zoom-container" alt="수원 로고 1" width="100" height="100" />
-            나의 팀을 소개합니다
+            My Team and I
             <img src="수원2.png" class="zoom-container" alt="수원 로고 2" width="100" height="100" />
         </h1>
     </header>
-    <nav>
-        <h2>목차</h2>
-        <ul>
-            <li><a href=#profile_sxp>내 소개</a></li>
-            <li><a href=#team_information>팀 소개</a></li>
-            <li><a href=#link>관련링크</a></li>
-        </ul>
+    <nav class="navbar">
+        <section class="navbar-container">
+          <a href="#" class="navbar-logo">박성훈</a>
+          <ul class="navbar-menu">
+            <li><a href="#profile_sxp">내 소개</a></li>
+            <li><a href="#team_information">팀 소개</a></li>
+            <li><a href="#link">관련링크</a></li>
+          </ul>
+        </section>
     </nav>
 
     <section class="profile">
@@ -92,7 +197,7 @@
             
             <h2>내 소개</h2>
                 <img src="프로필 사진.jpg" class="zoom-container" alt="프로필 사진" width="150" height="150" />
-            <p>
+            <p id="intro">
                 대한민국 프로축구 팀 <strong>수원 삼성 블루윙즈</strong>를 응원하는 데이터 분석가 입니다.
             </p>
             <ul>
@@ -151,7 +256,40 @@
             </ul>
         </article>
     </section>
+    <script>
+        // 타이핑 애니메이션
+        document.addEventListener('DOMContentLoaded', function() {
+            let textElement = document.getElementById('intro');
+            let text = textElement.textContent;
+            textElement.textContent = '';
+            let index = 0;
 
+            function typeEffect() {
+                if (index < text.length) {
+                    textElement.textContent += text.charAt(index);
+                    index++;
+                    setTimeout(typeEffect, 100); // 타이핑 속도 조절 (ms 단위)
+                }
+            }
+
+            typeEffect();
+        });
+
+        // 다크&라이트 모드 토글
+        const body = document.body;
+        const modeToggle = document.getElementById('mode-toggle');
+
+        modeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            body.classList.toggle('light-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                modeToggle.textContent = '라이트 모드';
+            } else {
+                modeToggle.textContent = '다크 모드';
+            }
+        });
+    </script>
 
 
     <footer>
